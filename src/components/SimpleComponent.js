@@ -1,23 +1,22 @@
 // Code SimpleComponent Here
-import {Component} from 'react';
+import React, {Component} from 'react';
 
 export default class SimpleComponent extends Component {
     constructor() {
         super()
-        state = {
-            mood: happy
+        this.state = {
+            mood: "happy"
         }
     }
 
-    handleClick() {
-        this.setState = {
-            mood: sad
-        }
+    handleClick = () => {
+        const newMood = this.state.mood === 'happy' ? 'sad' : 'happy';
+        this.setState({mood: "sad"});
     }
 
     render() {
         return(
-            <div onClick={handleClick}></div>
+            <div onClick={this.handleClick}>{this.state.mood}</div>
         )
     }
 }
